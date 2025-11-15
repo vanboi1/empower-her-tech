@@ -1,12 +1,4 @@
-/* Reset basique */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* HERO */
+/* Hero */
 .hero {
   background: linear-gradient(135deg, #f9f7f7, #ffe5e0);
   text-align: center;
@@ -25,116 +17,22 @@
   font-size: 1.25rem;
   color: #555;
   max-width: 650px;
-  margin: 0 auto;
+  margin: 0 auto 30px auto;
   line-height: 1.6;
 }
 
-/* SERVICES */
-.services {
-  padding: 60px 20px;
-  text-align: center;
-  background-color: #fff;
-}
-
-.services h2 {
-  font-size: 2.25rem;
-  margin-bottom: 40px;
-  color: #1a1a1a;
-}
-
-.service-list {
+.impact-counter {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ff6f61;
 }
 
-.service {
-  width: 250px;
-  text-align: center;
-}
-
-.service img {
-  width: 100%;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  transition: transform 0.3s ease;
-}
-
-.service img:hover {
-  transform: scale(1.05);
-}
-
-.service h3 {
-  font-size: 1.25rem;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.service p {
+.counter-label {
   font-size: 1rem;
-  color: #666;
-}
-
-/* JOIN */
-.join {
-  padding: 60px 20px;
-  background-color: #f2f2f2;
-  text-align: center;
-}
-
-.join h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-  color: #1a1a1a;
-}
-
-.join-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.btn {
-  background-color: #ff6f61;
-  color: #fff;
-  padding: 15px 25px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #ff3b2e;
-}
-
-.btn-donate {
-  background-color: #1a73e8;
-}
-
-.btn-donate:hover {
-  background-color: #155ab6;
-}
-
-/* FOOTER */
-.footer {
-  background-color: #1a1a1a;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9rem;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .service-list {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .btn {
-    width: 180px;
-  }
+  font-weight: 500;
+  color: #333;
 }
