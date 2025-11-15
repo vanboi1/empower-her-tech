@@ -13,7 +13,7 @@ function App() {
           className="hero-image"
         />
         <h1 className="hero-title">
-          Protéger • Autonomiser • Transformer des vies
+          Protéger Autonomiser Transformer des vies
         </h1>
         <p className="hero-subtitle">
           EmpowerHer Tech est une plateforme digitale qui aide les jeunes femmes
