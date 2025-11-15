@@ -1,38 +1,49 @@
-/* Hero */
-.hero {
-  background: linear-gradient(135deg, #f9f7f7, #ffe5e0);
+/* Hero section */
+.hero-section {
   text-align: center;
   padding: 80px 20px;
+  background: linear-gradient(to right, #f6d365, #fda085);
+  color: #1a1a1a;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .hero-title {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 1rem;
-  line-height: 1.2;
+  margin-bottom: 20px;
 }
 
 .hero-subtitle {
-  font-size: 1.25rem;
-  color: #555;
-  max-width: 650px;
-  margin: 0 auto 30px auto;
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 40px;
   line-height: 1.6;
 }
 
 .impact-counter {
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-  gap: 10px;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #ff6f61;
+  font-size: 2rem;
+  margin-bottom: 40px;
 }
 
-.counter-label {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #333;
+.impact-counter .counter {
+  font-weight: bold;
+  color: #ff6f61;
+  margin-right: 10px;
+}
+
+.hero-links a {
+  display: inline-block;
+  margin: 10px 15px;
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #ff6f61;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.hero-links a:hover {
+  background-color: #ff6f61;
+  color: #fff;
 }
