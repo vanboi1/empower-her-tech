@@ -1,103 +1,88 @@
-<section className="services">
-  <motion.h2 initial="hidden" animate="visible" variants={fadeIn}>
-    {translations[lang].services}
-  </motion.h2>
+import React from "react";
+import { motion } from "framer-motion";
+import CountUp from "react-countup";
+import { translations } from "./Translations";
+import "./App.css";
 
-  {/* Service 1 */}
-  <motion.div
-    className="service"
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-    variants={fadeIn}
-    transition={{ delay: 0.1 }}
-  >
-    <img src="/services1.jpg" alt="Sensibilisation & Prévention" />
-    <h3>Sensibilisation & Prévention</h3>
-    <p>Articles éducatifs, vidéos et conseils pratiques pour se protéger et comprendre ses droits</p>
-  </motion.div>
+// Images des services (déplace-les dans public/)
+import service1 from "./../public/services1.jpg";
+import service2 from "./../public/services2.jpg";
+import service3 from "./../public/services3.jpg";
+import service4 from "./../public/services4.jpg";
+import service5 from "./../public/services5.jpg";
+import service6 from "./../public/services6.jpg";
+import service7 from "./../public/services7.jpg";
 
-  {/* Service 2 */}
-  <motion.div
-    className="service"
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-    variants={fadeIn}
-    transition={{ delay: 0.2 }}
-  >
-    <img src="/services2.jpg" alt="Formations en ligne" />
-    <h3>Formations en ligne</h3>
-    <p>Cours sur la sécurité numérique, la santé mentale, les droits des femmes et l’entrepreneuriat féminin</p>
-  </motion.div>
+const App = () => {
+  const lang = "fr";
 
-  {/* Service 3 */}
-  <motion.div
-    className="service"
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-    variants={fadeIn}
-    transition={{ delay: 0.3 }}
-  >
-    <img src="/services3.jpg" alt="Recyclage des déchets ménagers" />
-    <h3>Recyclage des déchets ménagers</h3>
-    <p>Aider les jeunes femmes à recycler les déchets ménagers et créer des opportunités durables</p>
-  </motion.div>
+  const fadeIn = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
 
-  {/* Service 4 */}
-  <motion.div
-    className="service"
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-    variants={fadeIn}
-    transition={{ delay: 0.4 }}
-  >
-    <img src="/services4.jpg" alt="Assistance & orientation" />
-    <h3>Assistance & orientation</h3>
-    <p>Signalement anonyme, soutien psychologique, aide juridique et orientation vers des ONG partenaires</p>
-  </motion.div>
+  const services = [
+    { img: service1, titre: "Sensibilisation & Prévention", desc: "Articles éducatifs, vidéos et conseils pratiques pour se protéger et comprendre ses droits" },
+    { img: service2, titre: "Formations en ligne", desc: "Cours sur la sécurité numérique, la santé mentale, les droits des femmes et l’entrepreneuriat féminin" },
+    { img: service3, titre: "Recyclage des déchets ménagers", desc: "Aider les jeunes femmes à recycler les déchets ménagers et créer des opportunités durables" },
+    { img: service4, titre: "Assistance & orientation", desc: "Signalement anonyme, soutien psychologique, aide juridique et orientation vers des ONG partenaires" },
+    { img: service5, titre: "Santé sexuelle", desc: "Conseils et formations pour la santé sexuelle et reproductive des jeunes femmes" },
+    { img: service6, titre: "Éducation & Protection environnementale", desc: "Sensibilisation à l’éducation et à la protection de l’environnement" },
+    { img: service7, titre: "Adaptabilité climatique", desc: "Former les jeunes femmes à s’adapter aux changements climatiques" },
+  ];
 
-  {/* Service 5 */}
-  <motion.div
-    className="service"
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-    variants={fadeIn}
-    transition={{ delay: 0.5 }}
-  >
-    <img src="/services5.jpg" alt="Santé sexuelle" />
-    <h3>Santé sexuelle</h3>
-    <p>Accès à l’information et soutien pour la santé sexuelle et reproductive</p>
-  </motion.div>
+  return (
+    <div className="App">
+      {/* Hero Section */}
+      <header className="hero">
+        <motion.h1 initial="hidden" animate="visible" variants={fadeIn}>
+          Protéger • Autonomiser • Transformer des vies
+        </motion.h1>
+        <motion.p initial="hidden" animate="visible" variants={fadeIn} transition={{ delay: 0.3 }}>
+          EmpowerHer Tech est une plateforme digitale qui aide les jeunes femmes au Burundi à se protéger contre les violences basées sur le genre, à accéder à des formations en ligne et à recevoir une assistance confidentielle et sécurisée
+        </motion.p>
+        <motion.div className="counter" initial="hidden" animate="visible" variants={fadeIn} transition={{ delay: 0.6 }}>
+          <CountUp end={13} duration={2.5} separator=" " suffix=" femmes formées" />
+        </motion.div>
+      </header>
 
-  {/* Service 6 */}
-  <motion.div
-    className="service"
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-    variants={fadeIn}
-    transition={{ delay: 0.6 }}
-  >
-    <img src="/services6.jpg" alt="Éducation & Protection environnementale" />
-    <h3>Éducation & Protection environnementale</h3>
-    <p>Programmes éducatifs et initiatives pour protéger l’environnement</p>
-  </motion.div>
+      {/* Services Section */}
+      <section className="services">
+        <motion.h2 initial="hidden" animate="visible" variants={fadeIn}>
+          Services / Programmes
+        </motion.h2>
 
-  {/* Service 7 */}
-  <motion.div
-    className="service"
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-    variants={fadeIn}
-    transition={{ delay: 0.7 }}
-  >
-    <img src="/services7.jpg" alt="Adaptabilité climatique" />
-    <h3>Adaptabilité climatique</h3>
-    <p>Formations et projets pour aider à s’adapter aux changements climatiques</p>
-  </motion.div>
-</section>
+        {services.map((service, index) => (
+          <motion.div
+            key={index}
+            className="service"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+            transition={{ delay: index * 0.2 }}
+          >
+            <img src={service.img} alt={service.titre} />
+            <h3>{service.titre}</h3>
+            <p>{service.desc}</p>
+          </motion.div>
+        ))}
+      </section>
+
+      {/* Join Us Section */}
+      <section className="join-us">
+        <motion.h2 initial="hidden" animate="visible" variants={fadeIn}>
+          Rejoignez EmpowerHer Tech
+        </motion.h2>
+        <motion.div className="buttons" initial="hidden" animate="visible" variants={fadeIn} transition={{ delay: 0.2 }}>
+          <button>Contactez-nous</button>
+          <button>À propos de nous</button>
+          <button>Rejoignez-nous</button>
+          <button>Faire un don</button>
+        </motion.div>
+      </section>
+    </div>
+  );
+};
+
+export default App;
