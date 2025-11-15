@@ -14,6 +14,7 @@ body {
 
 /* === Header / Hero === */
 .hero {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -21,46 +22,45 @@ body {
   align-items: center;
   text-align: center;
   padding: 2rem;
-  background-size: cover;
-  background-position: center;
-  color: #fff;
   position: relative;
+  overflow: hidden;
 }
 
-.hero::after {
-  content: "";
+.hero-img {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5); /* sombre overlay */
-  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+  z-index: 0;
 }
 
 .hero h1,
 .hero p,
-.hero .counter {
+.counter {
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
 .hero h1 {
   font-size: 3rem;
-  font-weight: 700;
+  color: #fff;
   margin-bottom: 1rem;
 }
 
 .hero p {
-  font-size: 1.4rem;
-  max-width: 600px;
+  font-size: 1.3rem;
+  color: #fff;
   margin-bottom: 2rem;
+  max-width: 700px;
 }
 
 .counter {
   font-size: 2rem;
   font-weight: bold;
-  margin-top: 1rem;
+  color: #fff;
 }
 
 /* === Services Section === */
@@ -74,18 +74,22 @@ body {
   font-size: 2rem;
   margin-bottom: 2rem;
   color: #ff6f61;
-  font-weight: 600;
+}
+
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .service {
-  display: inline-block;
-  margin: 1rem;
-  max-width: 250px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 260px;
   background: #fff;
   border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
   padding: 1rem;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service img {
@@ -98,6 +102,7 @@ body {
 .service h3 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
+  color: #333;
 }
 
 .service p {
@@ -107,7 +112,7 @@ body {
 
 .service:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.15);
 }
 
 .service img:hover {
@@ -125,7 +130,6 @@ body {
   font-size: 2rem;
   margin-bottom: 2rem;
   color: #ff6f61;
-  font-weight: 600;
 }
 
 .join-us .buttons {
@@ -136,33 +140,33 @@ body {
 }
 
 .join-us button {
-  padding: 0.8rem 1.8rem;
+  padding: 0.8rem 1.5rem;
   font-size: 1rem;
   border: none;
   border-radius: 50px;
   cursor: pointer;
   background: #ff6f61;
   color: #fff;
-  font-weight: 600;
   transition: all 0.3s ease;
 }
 
 .join-us button:hover {
   background: #ff3b2e;
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+}
+
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: #333;
+  color: #fff;
+  margin-top: 2rem;
+  font-size: 0.9rem;
 }
 
 /* === Responsive Mobile === */
-@media (max-width: 1024px) {
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-  .hero p {
-    font-size: 1.2rem;
-  }
-}
-
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2rem;
@@ -170,18 +174,18 @@ body {
   .hero p {
     font-size: 1rem;
   }
-
   .services h2,
   .join-us h2 {
     font-size: 1.5rem;
   }
-
-  .service {
-    max-width: 80%;
-    margin: 1rem auto;
+  .services-container {
+    flex-direction: column;
+    align-items: center;
   }
-
+  .service {
+    max-width: 90%;
+  }
   .join-us .buttons {
     flex-direction: column;
   }
-  }
+}
