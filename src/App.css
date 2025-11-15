@@ -1,60 +1,146 @@
-.App {
-  font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
+/* === Global Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f9f9f9;
   color: #333;
+  line-height: 1.6;
 }
 
+/* === Header / Hero === */
 .hero {
-  padding: 40px 20px;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  background: linear-gradient(135deg, #6c63ff, #9f80ff);
-  color: white;
-  position: relative;
+  padding: 2rem;
 }
 
-.btn-urgence {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #ff4d4f;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 50px;
-  text-decoration: none;
+.hero h1 {
+  font-size: 2.8rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.counter {
+  font-size: 2rem;
   font-weight: bold;
+  color: #fff;
 }
 
+/* === Services Section === */
 .services {
-  padding: 40px 20px;
+  padding: 4rem 2rem;
+  background: #fff;
   text-align: center;
 }
 
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
+.services h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #ff6f61;
 }
 
-.service-card {
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.rejoignez {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.rejoignez-buttons .btn {
-  margin: 10px;
-  padding: 12px 20px;
-  background-color: #6c63ff;
-  color: white;
-  border-radius: 10px;
-  text-decoration: none;
+.service {
   display: inline-block;
-  font-weight: bold;
+  margin: 1rem;
+  max-width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.service h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.service p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.service:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
+}
+
+.service img:hover {
+  transform: scale(1.05);
+}
+
+/* === Join Us Section === */
+.join-us {
+  padding: 4rem 2rem;
+  background: #ffefef;
+  text-align: center;
+}
+
+.join-us h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #ff6f61;
+}
+
+.join-us .buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.join-us button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  background: #ff6f61;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.join-us button:hover {
+  background: #ff3b2e;
+  transform: translateY(-3px);
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+}
+
+/* === Responsive Mobile === */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .services h2, .join-us h2 {
+    font-size: 1.5rem;
+  }
+  .service {
+    max-width: 80%;
+  }
+  .join-us .buttons {
+    flex-direction: column;
+  }
 }
