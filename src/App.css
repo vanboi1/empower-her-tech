@@ -1,106 +1,187 @@
+/* === Global Reset === */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
-.App {
-  width: 100%;
-  overflow-x: hidden;
+body {
+  background: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
 }
 
-/* HERO */
+/* === Header / Hero === */
 .hero {
-  height: 90vh;
-  background-size: cover;
-  background-position: center;
-  color: white;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 40px;
-  background-color: rgba(0,0,0,0.4);
-  background-blend-mode: darken;
+  padding: 2rem;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* sombre overlay */
+  z-index: 1;
+}
+
+.hero h1,
+.hero p,
+.hero .counter {
+  position: relative;
+  z-index: 2;
 }
 
 .hero h1 {
   font-size: 3rem;
   font-weight: 700;
+  margin-bottom: 1rem;
 }
 
 .hero p {
-  font-size: 1.3rem;
-  margin-top: 10px;
+  font-size: 1.4rem;
+  max-width: 600px;
+  margin-bottom: 2rem;
 }
 
 .counter {
-  margin-top: 20px;
-  font-size: 1.4rem;
-  background: rgba(0,0,0,0.5);
-  padding: 10px 20px;
-  border-radius: 10px;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 1rem;
 }
 
-/* SERVICES */
+/* === Services Section === */
 .services {
-  padding: 60px 20px;
+  padding: 4rem 2rem;
+  background: #fff;
   text-align: center;
 }
 
 .services h2 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #ff6f61;
+  font-weight: 600;
 }
 
 .service {
-  width: 90%;
-  max-width: 600px;
-  margin: 20px auto;
+  display: inline-block;
+  margin: 1rem;
+  max-width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   background: #fff;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 15px;
+  padding: 1rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .service img {
   width: 100%;
-  height: 250px;
-  object-fit: cover;
   border-radius: 10px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
 }
 
-/* JOIN US */
+.service h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.service p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.service:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.service img:hover {
+  transform: scale(1.05);
+}
+
+/* === Join Us Section === */
 .join-us {
-  padding: 60px 20px;
+  padding: 4rem 2rem;
+  background: #ffefef;
   text-align: center;
-  background: #f3f3f3;
 }
 
 .join-us h2 {
-  font-size: 2.3rem;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #ff6f61;
+  font-weight: 600;
 }
 
-.buttons {
-  margin-top: 20px;
+.join-us .buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
   justify-content: center;
+  gap: 1rem;
 }
 
-button {
-  padding: 12px 22px;
-  border: none;
-  background: #2e3cff;
-  color: white;
-  border-radius: 8px;
+.join-us button {
+  padding: 0.8rem 1.8rem;
   font-size: 1rem;
+  border: none;
+  border-radius: 50px;
   cursor: pointer;
-  transition: 0.3s;
+  background: #ff6f61;
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
-button:hover {
-  background: #1b27cc;
+.join-us button:hover {
+  background: #ff3b2e;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
+
+/* === Responsive Mobile === */
+@media (max-width: 1024px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .hero p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .services h2,
+  .join-us h2 {
+    font-size: 1.5rem;
+  }
+
+  .service {
+    max-width: 80%;
+    margin: 1rem auto;
+  }
+
+  .join-us .buttons {
+    flex-direction: column;
+  }
+  }
