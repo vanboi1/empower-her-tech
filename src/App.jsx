@@ -10,29 +10,27 @@ import service3 from "./assets/services3.jpg";
 import service4 from "./assets/services4.jpg";
 
 const App = () => {
-  const lang = "fr"; // changer selon la langue
+  const lang = "fr"; // exemple : tu peux changer selon la langue
 
-  // Variants pour les animations
-  const container = {
-    hidden: { opacity: 0 },
-    show: { 
-      opacity: 1,
-      transition: { staggerChildren: 0.2 }
-    }
+  // Animation pour sections
+  const sectionAnimation = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
   };
 
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 }
+  // Animation pour boutons
+  const buttonAnimation = {
+    whileHover: { scale: 1.1 },
+    whileTap: { scale: 0.95 },
   };
 
   return (
     <div className="App">
       {/* Header */}
       <motion.header
-        className="header"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial="hidden"
+        animate="visible"
+        variants={sectionAnimation}
         transition={{ duration: 0.8 }}
       >
         <h1>{translations[lang].titrePrincipal}</h1>
@@ -41,51 +39,52 @@ const App = () => {
 
       {/* Services */}
       <motion.section
-        className="services"
-        variants={container}
         initial="hidden"
-        animate="show"
+        animate="visible"
+        variants={sectionAnimation}
+        transition={{ duration: 0.8, delay: 0.2 }}
       >
         <h2>{translations[lang].services}</h2>
 
-        <motion.div className="service" variants={item} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+        <div className="service">
           <img src={service1} alt={translations[lang].services1Titre} />
           <h3>{translations[lang].services1Titre}</h3>
           <p>{translations[lang].services1Desc}</p>
-        </motion.div>
+        </div>
 
-        <motion.div className="service" variants={item} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+        <div className="service">
           <img src={service2} alt={translations[lang].services2Titre} />
           <h3>{translations[lang].services2Titre}</h3>
           <p>{translations[lang].services2Desc}</p>
-        </motion.div>
+        </div>
 
-        <motion.div className="service" variants={item} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+        <div className="service">
           <img src={service3} alt={translations[lang].services3Titre} />
           <h3>{translations[lang].services3Titre}</h3>
           <p>{translations[lang].services3Desc}</p>
-        </motion.div>
+        </div>
 
-        <motion.div className="service" variants={item} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+        <div className="service">
           <img src={service4} alt={translations[lang].services4Titre} />
           <h3>{translations[lang].services4Titre}</h3>
           <p>{translations[lang].services4Desc}</p>
-        </motion.div>
+        </div>
       </motion.section>
 
-      {/* Call to Action */}
+      {/* Rejoignez / Contact / Don */}
       <motion.section
-        className="cta"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+        className="rejoignez"
+        initial="hidden"
+        animate="visible"
+        variants={sectionAnimation}
+        transition={{ duration: 0.8, delay: 0.4 }}
       >
         <h2>Rejoignez EmpowerHer Tech</h2>
-        <div className="cta-buttons">
-          <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>Contactez-nous</motion.button>
-          <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>À propos de nous</motion.button>
-          <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>Rejoignez-nous</motion.button>
-          <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>Faire un don</motion.button>
+        <div className="buttons">
+          <motion.button {...buttonAnimation}>Contactez-nous</motion.button>
+          <motion.button {...buttonAnimation}>À propos de nous</motion.button>
+          <motion.button {...buttonAnimation}>Rejoignez-nous</motion.button>
+          <motion.button {...buttonAnimation}>Faire un don</motion.button>
         </div>
       </motion.section>
     </div>
