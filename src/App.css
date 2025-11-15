@@ -1,140 +1,146 @@
-/* Reset basique */
+/* === Global Reset === */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* HERO */
-.hero {
-  background: linear-gradient(135deg, #f9f7f7, #ffe5e0);
-  text-align: center;
-  padding: 80px 20px;
-}
-
-.hero-title {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-}
-
-.hero-subtitle {
-  font-size: 1.25rem;
-  color: #555;
-  max-width: 650px;
-  margin: 0 auto;
+body {
+  background: #f9f9f9;
+  color: #333;
   line-height: 1.6;
 }
 
-/* SERVICES */
-.services {
-  padding: 60px 20px;
+/* === Header / Hero === */
+.hero {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  background-color: #fff;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.counter {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* === Services Section === */
+.services {
+  padding: 4rem 2rem;
+  background: #fff;
+  text-align: center;
 }
 
 .services h2 {
-  font-size: 2.25rem;
-  margin-bottom: 40px;
-  color: #1a1a1a;
-}
-
-.service-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #ff6f61;
 }
 
 .service {
-  width: 250px;
-  text-align: center;
+  display: inline-block;
+  margin: 1rem;
+  max-width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service img {
   width: 100%;
-  border-radius: 12px;
-  margin-bottom: 15px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
   transition: transform 0.3s ease;
+}
+
+.service h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.service p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.service:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
 }
 
 .service img:hover {
   transform: scale(1.05);
 }
 
-.service h3 {
-  font-size: 1.25rem;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.service p {
-  font-size: 1rem;
-  color: #666;
-}
-
-/* JOIN */
-.join {
-  padding: 60px 20px;
-  background-color: #f2f2f2;
+/* === Join Us Section === */
+.join-us {
+  padding: 4rem 2rem;
+  background: #ffefef;
   text-align: center;
 }
 
-.join h2 {
+.join-us h2 {
   font-size: 2rem;
-  margin-bottom: 30px;
-  color: #1a1a1a;
+  margin-bottom: 2rem;
+  color: #ff6f61;
 }
 
-.join-buttons {
+.join-us .buttons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 1rem;
 }
 
-.btn {
-  background-color: #ff6f61;
+.join-us button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  background: #ff6f61;
   color: #fff;
-  padding: 15px 25px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
   transition: all 0.3s ease;
 }
 
-.btn:hover {
-  background-color: #ff3b2e;
+.join-us button:hover {
+  background: #ff3b2e;
+  transform: translateY(-3px);
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
 }
 
-.btn-donate {
-  background-color: #1a73e8;
-}
-
-.btn-donate:hover {
-  background-color: #155ab6;
-}
-
-/* FOOTER */
-.footer {
-  background-color: #1a1a1a;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9rem;
-}
-
-/* Responsive */
+/* === Responsive Mobile === */
 @media (max-width: 768px) {
-  .service-list {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .services h2, .join-us h2 {
+    font-size: 1.5rem;
+  }
+  .service {
+    max-width: 80%;
+  }
+  .join-us .buttons {
     flex-direction: column;
-    align-items: center;
   }
-
-  .btn {
-    width: 180px;
   }
-}
