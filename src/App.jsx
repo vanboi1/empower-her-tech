@@ -1,113 +1,103 @@
-import React from "react";
-import { translations } from "./Translations";
-import "./App.css";
-import { motion } from "framer-motion";
-import CountUp from "react-countup";
+<section className="services">
+  <motion.h2 initial="hidden" animate="visible" variants={fadeIn}>
+    {translations[lang].services}
+  </motion.h2>
 
-const App = () => {
-  const lang = "fr"; // changer selon la langue si besoin
+  {/* Service 1 */}
+  <motion.div
+    className="service"
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={fadeIn}
+    transition={{ delay: 0.1 }}
+  >
+    <img src="/services1.jpg" alt="Sensibilisation & Prévention" />
+    <h3>Sensibilisation & Prévention</h3>
+    <p>Articles éducatifs, vidéos et conseils pratiques pour se protéger et comprendre ses droits</p>
+  </motion.div>
 
-  // Animation de base pour les sections
-  const fadeIn = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
+  {/* Service 2 */}
+  <motion.div
+    className="service"
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={fadeIn}
+    transition={{ delay: 0.2 }}
+  >
+    <img src="/services2.jpg" alt="Formations en ligne" />
+    <h3>Formations en ligne</h3>
+    <p>Cours sur la sécurité numérique, la santé mentale, les droits des femmes et l’entrepreneuriat féminin</p>
+  </motion.div>
 
-  return (
-    <div className="App">
-      {/* === Header / Hero === */}
-      <header className="hero">
-        <img src="/hero1.jpg" alt="Hero" className="hero-img" />
-        <motion.h1 initial="hidden" animate="visible" variants={fadeIn}>
-          {translations[lang].titrePrincipal}
-        </motion.h1>
-        <motion.p
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
-          transition={{ delay: 0.3 }}
-        >
-          {translations[lang].sousTitre}
-        </motion.p>
-        <motion.div
-          className="counter"
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
-          transition={{ delay: 0.6 }}
-        >
-          <span>
-            <CountUp end={1247} duration={2.5} separator=" " /> femmes formées
-          </span>
-        </motion.div>
-      </header>
+  {/* Service 3 */}
+  <motion.div
+    className="service"
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={fadeIn}
+    transition={{ delay: 0.3 }}
+  >
+    <img src="/services3.jpg" alt="Recyclage des déchets ménagers" />
+    <h3>Recyclage des déchets ménagers</h3>
+    <p>Aider les jeunes femmes à recycler les déchets ménagers et créer des opportunités durables</p>
+  </motion.div>
 
-      {/* === Services === */}
-      <section className="services">
-        <motion.h2 initial="hidden" animate="visible" variants={fadeIn}>
-          {translations[lang].services}
-        </motion.h2>
+  {/* Service 4 */}
+  <motion.div
+    className="service"
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={fadeIn}
+    transition={{ delay: 0.4 }}
+  >
+    <img src="/services4.jpg" alt="Assistance & orientation" />
+    <h3>Assistance & orientation</h3>
+    <p>Signalement anonyme, soutien psychologique, aide juridique et orientation vers des ONG partenaires</p>
+  </motion.div>
 
-        <div className="services-container">
-          {[
-            {
-              img: "/services1.jpg",
-              titre: translations[lang].services1Titre,
-              desc: translations[lang].services1Desc,
-            },
-            {
-              img: "/services2.jpg",
-              titre: translations[lang].services2Titre,
-              desc: translations[lang].services2Desc,
-            },
-            {
-              img: "/services3.jpg",
-              titre: translations[lang].services3Titre,
-              desc: translations[lang].services3Desc,
-            },
-            {
-              img: "/services4.jpg",
-              titre: translations[lang].services4Titre,
-              desc: translations[lang].services4Desc,
-            },
-          ].map((service, index) => (
-            <motion.div
-              key={index}
-              className="service"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              transition={{ delay: index * 0.2 }}
-            >
-              <img src={service.img} alt={service.titre} />
-              <h3>{service.titre}</h3>
-              <p>{service.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+  {/* Service 5 */}
+  <motion.div
+    className="service"
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={fadeIn}
+    transition={{ delay: 0.5 }}
+  >
+    <img src="/services5.jpg" alt="Santé sexuelle" />
+    <h3>Santé sexuelle</h3>
+    <p>Accès à l’information et soutien pour la santé sexuelle et reproductive</p>
+  </motion.div>
 
-      {/* === Join Us Section === */}
-      <section className="join-us">
-        <motion.h2 initial="hidden" animate="visible" variants={fadeIn}>
-          Rejoignez EmpowerHer Tech
-        </motion.h2>
-        <motion.div
-          className="buttons"
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
-          transition={{ delay: 0.2 }}
-        >
-          <button>Contactez-nous</button>
-          <button>À propos de nous</button>
-          <button>Rejoignez-nous</button>
-          <button>Faire un don</button>
-        </motion.div>
-      </section>
-    </div>
-  );
-};
+  {/* Service 6 */}
+  <motion.div
+    className="service"
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={fadeIn}
+    transition={{ delay: 0.6 }}
+  >
+    <img src="/services6.jpg" alt="Éducation & Protection environnementale" />
+    <h3>Éducation & Protection environnementale</h3>
+    <p>Programmes éducatifs et initiatives pour protéger l’environnement</p>
+  </motion.div>
 
-export default App;
+  {/* Service 7 */}
+  <motion.div
+    className="service"
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={fadeIn}
+    transition={{ delay: 0.7 }}
+  >
+    <img src="/services7.jpg" alt="Adaptabilité climatique" />
+    <h3>Adaptabilité climatique</h3>
+    <p>Formations et projets pour aider à s’adapter aux changements climatiques</p>
+  </motion.div>
+</section>
