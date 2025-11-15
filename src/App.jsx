@@ -2,37 +2,60 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 function App() {
-  const { t, i18n } = useTranslation(); // t() pour traduire
+  const { t } = useTranslation();
 
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng); // changer la langue
+  const backgroundStyle = {
+    backgroundImage: "url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1470&q=80')",
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    minHeight: '100vh',
+    padding: '40px',
+    color: 'white',
+    fontFamily: 'Arial, sans-serif',
+  };
+
+  const buttonStyle = {
+    padding: '10px 20px',
+    margin: '10px',
+    border: 'none',
+    borderRadius: '5px',
+    backgroundColor: '#ff7f50',
+    color: 'white',
+    cursor: 'pointer',
+    fontSize: '16px',
+  };
+
+  const imgStyle = {
+    width: '100%',
+    maxWidth: '300px',
+    borderRadius: '10px',
+    margin: '10px',
   };
 
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
-      {/* Boutons pour changer de langue */}
+    <div style={backgroundStyle}>
+      {/* Header */}
+      <h1 style={{ fontSize: '3em', marginBottom: '20px' }}>{t('titrePrincipal')}</h1>
+      <p style={{ fontSize: '1.2em', marginBottom: '30px' }}>{t('sousTitre')}</p>
+
+      {/* Buttons */}
       <div>
-        <button onClick={() => changeLanguage('fr')}>FR</button>
-        <button onClick={() => changeLanguage('en')}>EN</button>
-        <button onClick={() => changeLanguage('sw')}>SW</button>
-        <button onClick={() => changeLanguage('rn')}>RN</button>
+        <button style={buttonStyle}>{t('assistance')}</button>
+        <button style={buttonStyle}>{t('services')}</button>
+        <button style={buttonStyle}>{t('rejoindre')}</button>
       </div>
 
-      {/* Contenu principal */}
-      <h1>{t('titrePrincipal')}</h1>
-      <p>{t('sousTitre')}</p>
+      {/* Images illustratives */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: '40px' }}>
+        <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=800&q=80" alt="Sensibilisation" style={imgStyle} />
+        <img src="https://images.unsplash.com/photo-1581092580490-02d06de73e64?auto=format&fit=crop&w=800&q=80" alt="Formation" style={imgStyle} />
+        <img src="https://images.unsplash.com/photo-1590608897129-79d37f39aaf6?auto=format&fit=crop&w=800&q=80" alt="Assistance" style={imgStyle} />
+      </div>
 
-      {/* Menu exemple */}
-      <ul>
-        <li>{t('accueil')}</li>
-        <li>{t('apropos')}</li>
-        <li>{t('services')}</li>
-        <li>{t('assistance')}</li>
-        <li>{t('impact')}</li>
-        <li>{t('blog')}</li>
-        <li>{t('rejoindre')}</li>
-        <li>{t('contact')}</li>
-      </ul>
+      {/* Footer simple */}
+      <footer style={{ marginTop: '50px', fontSize: '0.9em' }}>
+        <p>{t('contact')}</p>
+      </footer>
     </div>
   );
 }
