@@ -7,7 +7,6 @@ import service1 from "./assets/services1.jpg";
 import service2 from "./assets/services2.jpg";
 import service3 from "./assets/services3.jpg";
 import service4 from "./assets/services4.jpg";
-import recyclageImg from "./assets/recyclage.jpg";
 
 // Framer Motion & CountUp
 import { motion } from "framer-motion";
