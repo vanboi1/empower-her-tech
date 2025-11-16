@@ -1,3 +1,94 @@
+/* === Global Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* === Navbar === */
+.navbar {
+  width: 100%;
+  background: #ff6f61;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar .menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.navbar .menu-toggle span {
+  height: 3px;
+  width: 25px;
+  background: #fff;
+  margin-bottom: 4px;
+  border-radius: 3px;
+}
+
+/* === Hero === */
+.hero {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 6rem 2rem 2rem; /* espace pour navbar fixe */
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.counter {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
 /* === Services Section === */
 .services {
   padding: 4rem 2rem;
@@ -11,20 +102,13 @@
   color: #ff6f61;
 }
 
-/* Container des cartes pour alignement et responsive */
-.services .service {
+.service {
   display: inline-block;
-  vertical-align: top;
   margin: 1rem;
-  width: 250px;
-  text-align: left;
-  background: #fefefe;
-  padding: 1rem;
-  border-radius: 12px;
+  max-width: 250px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Image du service */
 .service img {
   width: 100%;
   border-radius: 10px;
@@ -32,21 +116,16 @@
   transition: transform 0.3s ease;
 }
 
-/* Titre et description */
 .service h3 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
-  color: #333;
 }
 
 .service p {
   font-size: 0.95rem;
-  color: #555;
-  margin-bottom: 0.3rem; /* un petit espace entre chaque sous-point */
-  line-height: 1.4;
+  color: #666;
 }
 
-/* Effets au survol */
 .service:hover {
   transform: translateY(-5px);
   box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
@@ -56,14 +135,70 @@
   transform: scale(1.05);
 }
 
+/* === Join Us Section === */
+.join-us {
+  padding: 4rem 2rem;
+  background: #ffefef;
+  text-align: center;
+}
+
+.join-us h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #ff6f61;
+}
+
+.join-us .buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.join-us button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  background: #ff6f61;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.join-us button:hover {
+  background: #ff3b2e;
+  transform: translateY(-3px);
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+}
+
+/* === Contact Section === */
+.contact {
+  padding: 4rem 2rem;
+  background: #e0f7fa;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #00796b;
+}
+
+.contact-info p {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  color: #004d40;
+}
+
 /* === Responsive Mobile === */
 @media (max-width: 768px) {
-  .services h2 {
-    font-size: 1.5rem;
-  }
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
+  .services h2, .join-us h2, .contact h2 { font-size: 1.5rem; }
+  .service { max-width: 80%; }
+  .join-us .buttons { flex-direction: column; }
 
-  .service {
-    max-width: 90%;
-    margin: 1rem auto;
-  }
-  }
+  .navbar ul { display: none; }
+  .navbar .menu-toggle { display: flex; }
+}
