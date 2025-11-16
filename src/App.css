@@ -12,7 +12,58 @@ body {
   line-height: 1.6;
 }
 
-/* === Hero / Header === */
+/* === Navbar === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #ff6f61;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ffefef;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+.nav-links.open {
+  max-height: 300px;
+}
+
+/* === Hero Section === */
 .hero {
   background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
   min-height: 100vh;
@@ -56,21 +107,10 @@ body {
   color: #ff6f61;
 }
 
-.services-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
 .service {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: inline-block;
+  margin: 1rem;
   max-width: 250px;
-  background: #fff;
-  border-radius: 10px;
-  padding: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -84,13 +124,11 @@ body {
 .service h3 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
-  text-align: center;
 }
 
 .service p {
   font-size: 0.95rem;
   color: #666;
-  text-align: center;
 }
 
 .service:hover {
@@ -152,20 +190,22 @@ body {
   color: #00796b;
 }
 
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
 .contact-info p {
   font-size: 1rem;
+  margin-bottom: 0.8rem;
   color: #004d40;
 }
 
-/* === Animations Framer Motion placeholder styles === */
-.App .hero, .services, .join-us, .contact {
-  overflow: hidden; /* utile pour animations */
+/* === Framer Motion Animations (optional) === */
+.motion-element {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.motion-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s ease;
 }
 
 /* === Responsive Mobile === */
@@ -173,6 +213,22 @@ body {
   .hero h1 { font-size: 2rem; }
   .hero p { font-size: 1rem; }
   .services h2, .join-us h2, .contact h2 { font-size: 1.5rem; }
-  .service { max-width: 80%; margin: 1rem auto; }
+  .service { max-width: 80%; }
   .join-us .buttons { flex-direction: column; }
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: #ff6f61;
+    flex-direction: column;
+    align-items: center;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .nav-links.open {
+    max-height: 300px;
+  }
+  .hamburger { display: flex; }
 }
