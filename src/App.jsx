@@ -1,9 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
+import Navbar from "./Navbar";
 import "./App.css";
 
-// Import des images depuis public pour Vite
 const serviceImages = [
   "/services1.jpg",
   "/services2.jpg",
@@ -15,13 +15,13 @@ const serviceImages = [
 ];
 
 const services = [
-  { titre: "Sensibilisation & Prévention", desc: "Articles éducatifs, vidéos et conseils pratiques pour se protéger et comprendre ses droits." },
-  { titre: "Formations en ligne", desc: "Cours sur la sécurité numérique, la santé mentale, les droits des femmes et l’entrepreneuriat féminin." },
-  { titre: "Recyclage des déchets ménagers", desc: "Aider les jeunes femmes à recycler les déchets ménagers et créer des opportunités durables." },
-  { titre: "Assistance & orientation", desc: "Signalement anonyme, soutien psychologique, aide juridique et orientation vers des ONG partenaires." },
-  { titre: "Santé sexuelle", desc: "Accès à l’éducation sur la santé sexuelle et reproductive des jeunes femmes." },
-  { titre: "Éducation & Protection environnementale", desc: "Programmes éducatifs et sensibilisation à la protection de l’environnement." },
-  { titre: "Adaptabilité climatique", desc: "Formation et sensibilisation pour s’adapter aux changements climatiques et créer des solutions locales." }
+  { titre: "Sensibilisation & Prévention", desc: "Articles, vidéos et conseils pratiques pour se protéger et comprendre ses droits." },
+  { titre: "Formations en ligne", desc: "Cours sur la sécurité numérique, santé mentale et entrepreneuriat féminin." },
+  { titre: "Recyclage des déchets ménagers", desc: "Aider à recycler et créer des opportunités durables." },
+  { titre: "Assistance & orientation", desc: "Signalement anonyme, soutien psychologique, aide juridique et orientation vers ONG." },
+  { titre: "Santé sexuelle", desc: "Éducation sur la santé sexuelle et reproductive des jeunes femmes." },
+  { titre: "Éducation & Protection environnementale", desc: "Sensibilisation à la protection de l’environnement." },
+  { titre: "Adaptabilité climatique", desc: "Formation pour s’adapter aux changements climatiques et solutions locales." }
 ];
 
 const App = () => {
@@ -32,13 +32,15 @@ const App = () => {
 
   return (
     <div className="App">
+      <Navbar />
+
       {/* Hero */}
-      <header className="hero">
+      <header className="hero" id="hero">
         <motion.h1 initial="hidden" animate="visible" variants={fadeIn}>
           Protéger, Autonomiser, Transformer des vies
         </motion.h1>
         <motion.p initial="hidden" animate="visible" variants={fadeIn} transition={{ delay: 0.3 }}>
-          EmpowerHer Tech est une plateforme digitale qui aide les jeunes femmes au Burundi à se protéger contre les violences basées sur le genre, à accéder à des formations en ligne et à recevoir une assistance confidentielle et sécurisée.
+          EmpowerHer Tech aide les jeunes femmes au Burundi à se protéger, se former et accéder à une assistance sécurisée.
         </motion.p>
         <motion.div className="counter" initial="hidden" animate="visible" variants={fadeIn} transition={{ delay: 0.6 }}>
           <span><CountUp end={13} duration={2.5} /> femmes formées</span>
@@ -46,58 +48,60 @@ const App = () => {
       </header>
 
       {/* Services */}
-      <section className="services">
-        <motion.h2 initial="hidden" animate="visible" variants={fadeIn}>
-          Services / Programmes
-        </motion.h2>
-        {services.map((service, index) => (
-          <motion.div
-            key={index}
-            className="service"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeIn}
-            transition={{ delay: index * 0.2 }}
-          >
-            <img src={serviceImages[index]} alt={service.titre} />
-            <h3>{service.titre}</h3>
-            <p>{service.desc}</p>
-          </motion.div>
-        ))}
+      <section className="services" id="services">
+        <motion.h2 initial="hidden" animate="visible" variants={fadeIn}>Services / Programmes</motion.h2>
+        <div className="services-grid">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              className="service"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn}
+              transition={{ delay: index * 0.2 }}
+            >
+              <img src={serviceImages[index]} alt={service.titre} />
+              <h3>{service.titre}</h3>
+              <p>{service.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Project Charbon */}
+      <section className="project" id="project">
+        <motion.h2 initial="hidden" animate="visible" variants={fadeIn}>Projet Charbon Écologique</motion.h2>
+        <motion.p initial="hidden" animate="visible" variants={fadeIn}>
+          Nous transformons les coques de coco en charbon écologique durable pour réduire la déforestation et créer des revenus pour les communautés.
+        </motion.p>
+        <motion.div className="video-container" initial="hidden" animate="visible" variants={fadeIn}>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/TON_LIEN_VIDEO" title="Projet Charbon" frameBorder="0" allowFullScreen></iframe>
+        </motion.div>
       </section>
 
       {/* Join Us */}
-      <section className="join-us">
-        <motion.h2 initial="hidden" animate="visible" variants={fadeIn}>
-          Rejoignez EmpowerHer Tech
-        </motion.h2>
+      <section className="join-us" id="join-us">
+        <motion.h2 initial="hidden" animate="visible" variants={fadeIn}>Rejoignez EmpowerHer Tech</motion.h2>
         <motion.div className="buttons" initial="hidden" animate="visible" variants={fadeIn} transition={{ delay: 0.2 }}>
-          <button>Contactez-nous</button>
-          <button>À propos de nous</button>
-          <button>Rejoignez-nous</button>
-          <button>Faire un don</button>
+          <button onClick={() => alert("Formulaire Don")}>Faire un don</button>
+          <button onClick={() => alert("Formulaire Inscription")}>S’inscrire aux formations</button>
+          <button onClick={() => document.getElementById('project').scrollIntoView({behavior:'smooth'})}>Découvrir le projet</button>
+          <button onClick={() => document.getElementById('contact').scrollIntoView({behavior:'smooth'})}>Contactez-nous</button>
         </motion.div>
       </section>
 
       {/* Contact */}
-      <section className="contact">
-        <motion.h2 initial="hidden" animate="visible" variants={fadeIn}>
-          Où nous trouver
-        </motion.h2>
+      <section className="contact" id="contact">
+        <motion.h2 initial="hidden" animate="visible" variants={fadeIn}>Où nous trouver</motion.h2>
         <motion.div className="contact-info" initial="hidden" animate="visible" variants={fadeIn} transition={{ delay: 0.2 }}>
-          <p><strong>Siège principal :</strong> Avenue de l’Indépendance, Bujumbura, Burundi</p>
-          <p><strong>Autres bureaux :</strong> Gitega, Ngozi</p>
-          <p><strong>Téléphone :</strong> +257 22 123 456 | +257 79 987 654</p>
-          <p><strong>Email général :</strong> contact@empowerher-tech.bi</p>
-          <p><strong>Email support :</strong> support@empowerher-tech.bi</p>
-          <p><strong>Email formations :</strong> formations@empowerher-tech.bi</p>
-          <p><strong>Nos services :</strong> Protection contre les violences basées sur le genre, santé sexuelle, éducation et protection environnementale, recyclage des déchets ménagers, adaptabilité climatique.</p>
-          <p><strong>Nos partenaires :</strong> ONG locales et internationales pour l’assistance, l’éducation et le développement durable.</p>
+          <p><strong>Siège :</strong> Commune Ntahangwa, Zone Kamenge, Quartier Mirango II</p>
+          <p><strong>Téléphone :</strong> +257 61737979 | +257 68309248</p>
+          <p><strong>Email :</strong> contact@empowerher-tech.bi</p>
         </motion.div>
       </section>
     </div>
   );
 };
 
-export default App; // ✅ Export par défaut correct
+export default App;
