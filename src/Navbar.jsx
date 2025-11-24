@@ -10,6 +10,7 @@ const Navbar = () => {
       <div className={`nav-links ${isOpen ? "open" : ""}`}>
         <a href="#hero">Accueil</a>
         <a href="#services">Services</a>
+        <a href="#project">Projet Charbon</a>
         <a href="#join-us">Rejoignez-nous</a>
         <a href="#contact">Contact</a>
       </div>
